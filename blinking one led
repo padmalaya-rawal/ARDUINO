@@ -1,0 +1,16 @@
+int led=13;
+int ontime=500;
+int offtime=500;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(led, HIGH);
+  delay(ontime);
+  digitalWrite(led, LOW);
+  delay(offtime);
+}  
