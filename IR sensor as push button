@@ -1,0 +1,33 @@
+int ir=10;     // connect OUT pin of IR sensor to pin 10 of arduino
+int led=13;    // connect led to pin 13 of arduino
+int val=0;
+int ledon=0;
+int ON=0;
+
+void setup()
+{
+  Serial.begin(9600);    // initializing serial monitor
+  pinMode(ir, INPUT);    // setting ir sensor's pin as INPUT
+  pinMode(led, OUTPUT);  // settimg led as OUTPUT
+}
+
+void loop() 
+{
+  val=digitalRead(ir);
+  if(val==HIGH && ledon==LOW)
+  {
+    ON=1-ON;
+    delay(100);
+  }
+
+  ledon=val;
+  if(ON==HIGH)
+  {
+    digitalWrite(led, HIGH);
+  }
+  
+  else
+  {
+    digitalWrite(led, LOW);
+  }
+}
